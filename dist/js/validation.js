@@ -20,7 +20,7 @@ function flagout(){
 $('input[name="lastName"]').on('blur' , function(){
     _this=this;
     let value = $(this).val();
-var regexp = /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
+var regexp = new RegExp(/^[\u4E00-\u9FFF]+$/);
 if(value==""){
     $('.error_required_lastName').text("※入力必須項目です");
     flagin();
@@ -38,7 +38,7 @@ if(regexp.test(value)==true){
 $('input[name="firstName"]').on('blur' , function(){
     _this=this;
     let value = $(this).val();
-var regexp = /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
+    var regexp = new RegExp(/^[\u4E00-\u9FFF]+$/);
 if(value==""){
     $('.error_required_firstName').text("※入力必須項目です");
     flagin();
@@ -81,7 +81,7 @@ $('.max'+count).on('blur',function(){
 $('input[name="lastKana"]').on('blur' , function(){
     _this=this;
     let value = $(this).val();
-var regexp =/[\u{3000}-\u{301C}\u{3041}-\u{3093}\u{309B}-\u{309E}]/mu;
+var regexp =new RegExp(/^[\u3040-\u309f]+$/);
 if(value==""){
     $('.error_kana_lastKana').text("");
     flagin();
@@ -99,7 +99,7 @@ if(regexp.test(value)==true){
 $('input[name="firstKana"]').on('blur' , function(){
     _this=this;
     let value = $(this).val();
-var regexp =/[\u{3000}-\u{301C}\u{3041}-\u{3093}\u{309B}-\u{309E}]/mu;
+var regexp =new RegExp(/^[\u3040-\u309f]+$/);
 if(value==""){
     $('.error_kana_firstKana').text("");
     flagin();
@@ -157,4 +157,4 @@ if(regexp.test(value)==true){
 });
 
 
-});
+}); 
